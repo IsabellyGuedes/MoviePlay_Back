@@ -3,8 +3,7 @@ const userRouter = express.Router()
 const userController = require('../controllers/userController')
 
 userRouter.route('/user/create')
-.post((req, res) => 
-userController.createUser(req, res))
+.post((req, res) => userController.createUser(req, res))
 
 userRouter.route('/users')
 .get((req, res) => userController.getUsers(req, res))

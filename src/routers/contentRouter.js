@@ -3,7 +3,7 @@ const contentRouter = express.Router()
 const contentController = require('../controllers/contentController')
 
 contentRouter.route('/contents')
-.get((req, res) => contentController.getcontents(req, res))
+.get((req, res) => contentController.getContents(req, res))
 
 contentRouter.route('/content/update')
 .put((req, res) => contentController.updateContent(req, res))

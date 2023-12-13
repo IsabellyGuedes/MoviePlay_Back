@@ -1,7 +1,7 @@
 const Content = require('../models/contentModel')
 
 module.exports= {
-    createContent: async (req, res) => {
+    createContent: async (req, res) => { 
         try {
             const contentExists = await Content.findOne({ title: req.body.title });
 

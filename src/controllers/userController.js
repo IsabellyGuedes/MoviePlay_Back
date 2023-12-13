@@ -1,12 +1,11 @@
 const User = require('../models/userModel')
+const Content = require('../models/contentModel')
 require('dotenv').config();
 require('../config/database');
 const jwt = require('jsonwebtoken')
 
-
 module.exports= {
     createUser: async (req, res) => {
-
         try {
             const userExists = await User.findOne({ email: req.body.email });
 
@@ -63,14 +62,14 @@ module.exports= {
                     if (!same) {
                         res.status(401).json({ message: 'Senha incorreta. Tente novamente' });
                     } else {
-                        const secret = process.env.JWT_TOKEN;
+                        const secret = '7as8s8as4a5s4a5sa65'
                         const token = jwt.sign({ email }, secret, { expiresIn: '30d' });
-                        res.json({ message: `Usuário logado! Bem vindo(a), ${user.email}`, token: token });
+                        res.status(200).json({ message: `Usuário logado! Bem vindo(a), ${user.email}`, token: token });
                     }
                 });
             }
         } catch (error) {
             res.status(500).json({ error: 'Erro ao processar sua solicitação. Tente novamente.' });
         }
-    }
+    },   
 } 

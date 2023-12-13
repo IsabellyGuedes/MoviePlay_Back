@@ -3,10 +3,11 @@ const Schema = mongoose.Schema
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
-    firstName: {type: String, required: true},
-    lastName: {type: String, required: true},
+    fullName: {type: String, required: true},
     email: {type: String, required: true, unique: true},
     password: {type: String, required: true},
+    favoriteMovies: [{ type: Schema.Types.ObjectId, ref: 'Content' }],
+    purchasedMovies: [{ type: Schema.Types.ObjectId, ref: 'Content' }],
     created_at: { type: Date, default: Date.now},
     updated_at: { type: Date, default: Date.now},
 })
